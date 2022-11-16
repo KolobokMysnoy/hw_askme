@@ -1,0 +1,14 @@
+<!-- Pagination -->
+<div class="btn-toolbar mt-4 ms-2">
+  <div class="btn-group">
+    {% if page.has_previous %}
+    <a href="?page={{ page.previous_page_number }}" class="btn btn-outline-dark">Prev</a>
+    {% endif %}
+
+    <span class="btn fw-bold" style="pointer-events: none;">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+
+    {% if page.has_next %}
+    <a href="?page={{ page.next_page_number }}" class="btn btn-outline-dark">Next</a>
+    {% endif %}
+  </div>
+</div>

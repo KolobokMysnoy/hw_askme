@@ -1,0 +1,35 @@
+{% extends "inc/base.html"%}
+
+{% block user_block %}
+{% include "inc/login_signup.html" %}
+{% endblock user_block %}
+
+{% block content %}
+<!-- Login form -->
+<div class="text-center">
+  <h2 class="mb-3">Log In</h2>
+  <form method="post">
+    <div class="form-floating mb-3 w-50 mx-auto">
+      <input type="text" class="form-control is-invalid" placeholder="Login">
+      <label>Login</label>
+      <div class="invalid-feedback">
+        Wrong login!
+      </div>
+    </div>
+    <div class="form-floating mb-3 w-50 mx-auto">
+      <input type="password" class="form-control is-invalid" placeholder="Password">
+      <label>Password</label>
+      <div class="invalid-feedback">
+        Wrong password!
+      </div>
+    </div>
+    <button class="w-25 btn btn-lg btn-dark mb-3" type="submit">Log in!</button>
+  </form>
+  <a class="d-block" href="{% url 'signup' %}">creat new account</a>
+</div>
+{% endblock content %}
+
+{% block side_panel %}
+{% include "inc/tags_list.html" %}
+{% include "inc/members_list.html" %}
+{% endblock side_panel %}

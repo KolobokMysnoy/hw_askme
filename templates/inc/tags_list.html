@@ -1,0 +1,6 @@
+<div class="pt-5 p-2">
+  <h2>Popular Tags</h2>
+  {% for tag in tags %}
+  <a href="{% url 'with_tag' tag %}" class="link-">{{ tag }}</a>
+  {% endfor %}
+</div>

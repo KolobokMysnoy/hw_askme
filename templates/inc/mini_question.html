@@ -1,0 +1,35 @@
+{% load static %}
+
+<div class="row mx-1 my-3 py-2 {{ with_border }}">
+  <!-- Main -->
+  <div class="row">
+    <!-- Avatar -->
+    <div class="col-4">
+      <img class="img-fluid" src="{% static question.owner.avatar.url %}" alt="">
+    </div>
+    <!-- Text -->
+    <div class="col">
+      <a class="link-dark text-decoration-none" href="{% url 'question' question.id %}">
+        <h3>{{ question.title }}</h3>
+      </a>
+      <p>{{ question.text }}</p>
+    </div>
+  </div>
+  <!-- Question Info -->
+  <div class="row gy-1">
+    <!-- Rating -->
+    {% with rating=question.rating %}
+    {% include "inc/rating.html" %}
+    {% endwith %}
+    <!-- Text Info -->
+    <div class="col d-flex flex-wrap align-items-center">
+      {% if with_question_link %}
+      <a class="me-5" href="{% url 'question' question.id %}">answer ({{ question.answer_cnt }})</a>
+      {% endif %}
+      Tags:
+      {% for tag in question.tags.all %}
+      <a class="ms-2" href="{% url 'with_tag' tag.name %}">{{ tag.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+{% extends "inc/base.html"%}
+{% load static %}
+
+{% block user_block %}
+{% include "inc/authorized_user.html" %}
+{% endblock user_block %}
+
+{% block content %}
+<!-- Ask form -->
+<h2 class="mb-3">New Question</h2>
+<form method="post">
+  <div class="input-group mb-3">
+    <span class="input-group-text fs-4">Title</span>
+    <input type="text" class="form-control fs-5 is-invalid">
+    <div class="invalid-feedback">
+      Title missing!
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text fs-4">Text</span>
+    <textarea class="form-control fs-5 is-invalid" placeholder="Enter your text here.."
+      style="height: 250px;"></textarea>
+    <div class="invalid-feedback">
+      Text missing!
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text fs-4">Tags</span>
+    <input type="text" class="form-control fs-5 is-invalid">
+    <div class="invalid-feedback">
+      Tag missing!
+    </div>
+  </div>
+  <button class="d-block btn btn-outline-primary btn-lg w-25 mx-auto fw-bold align-center" type="submit">ASK!</button>
+</form>
+{% endblock content %}
+
+{% block side_panel %}
+<!-- Links -->
+{% include "inc/tags_list.html" %}
+{% include "inc/members_list.html" %}
+{% endblock side_panel %}

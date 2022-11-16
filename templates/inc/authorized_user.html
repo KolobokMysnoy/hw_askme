@@ -1,0 +1,10 @@
+{% load static %}
+<!-- Have login -->
+<img src="{% static 'img/profile.jpg' %}" width="38" height="38" class="rounded-circle me-2">
+<div class="btn-group-vertical">
+  <span class="text-light">NickName</span>
+  <div>
+    <a href="#" class="me-2">settings</a>
+    <a href="{% url 'login' %}">log out</a>
+  </div>
+</div>

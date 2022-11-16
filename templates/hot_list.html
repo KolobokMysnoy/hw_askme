@@ -1,0 +1,26 @@
+{% extends "inc/base.html"%}
+
+{% block user_block %}
+{% include "inc/login_signup.html" %}
+{% endblock user_block %}
+
+{% block content %}
+<!-- List of questions -->
+<h2 class="mb-3">Hot Questions</h2>
+
+{% with with_question_link=True with_border="border border-4 rounded-2" %}
+{% for question in questions %}
+{% include "inc/mini_question.html" %}
+{% endfor %}
+{% endwith %}
+
+{% with page=questions %}
+{% include "inc/pagination.html" %}
+{% endwith %}
+{% endblock content %}
+
+{% block side_panel %}
+<!-- Links -->
+{% include "inc/tags_list.html" %}
+{% include "inc/members_list.html" %}
+{% endblock side_panel %}

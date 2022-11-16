@@ -1,0 +1,34 @@
+{% extends "inc/base.html"%}
+{% load static %}
+
+{% block user_block %}
+{% include "inc/login_signup.html" %}
+{% endblock user_block %}
+
+{% block content %}
+{% include "inc/mini_question.html" %}
+<hr>
+{% for answer in answers %}
+{% include "inc/mini_answer.html" %}
+{% endfor %}
+
+{% with page=answers %}
+{% include "inc/pagination.html" %}
+{% endwith %}
+
+<hr>
+<!-- New Answer -->
+<div class="row mt-5">
+  <form method="post">
+    <div class="input-group">
+      <textarea class="form-control" placeholder="Enter your answer here.."></textarea>
+      <button class="btn btn-outline-secondary" type="submit">Answer</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}
+
+{% block side_panel %}
+{% include "inc/tags_list.html" %}
+{% include "inc/members_list.html" %}
+{% endblock side_panel %}
